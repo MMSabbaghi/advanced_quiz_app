@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مدیریت آزمون</title>
+  <link href="bootstrap/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="alertify/alertify.rtl.min.css">
+  <link rel="stylesheet" href="alertify/default.rtl.min.css">
+  <link rel="stylesheet" href="../bootstrap-icons/bootstrap-icons.css">
+</head>
+
+<body>
+  <div class="app">
+    <a class="back_home translate-middle" href="../index.html"> بازگشت به صفحه اصلی &#128072;</a>
+    <div class="header">
+      <h4 style="margin: 0;">مدیریت آزمون
+      </h4>
+      <p style="margin: 0;" id="list_number"></p>
+      <div class="d-flex align-items-center gap-1">
+        <button class="btn" id="export_btn" data-bs-toggle="tooltip" title="گرفتن خروجی از داده ها">
+          <i class="bi bi-box-arrow-up fs-5"></i>
+        </button>
+        <form class="btn" style="cursor: pointer;" data-bs-toggle="tooltip" title="وارد کردن داده">
+          <label style="cursor: pointer;" for="import_input"><i class="bi bi-box-arrow-in-down fs-5"></i></label>
+          <input type="file" id="import_input" accept=".json" class="d-none">
+        </form>
+        <div data-bs-toggle="tooltip" title="تنظیمات">
+          <button class="btn" id="settings_btn" data-bs-toggle="modal" data-bs-target="#settings_form">
+            <i class="bi bi-gear-fill fs-5"></i>
+          </button>
+        </div>
+        <div data-bs-toggle="tooltip" title="اضافه کردن سوال">
+          <button class="btn" data-bs-toggle="modal" data-bs-target="#form">
+            <i class="bi bi-plus-circle-fill fs-5"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- settings Modal -->
+    <form class="modal fade" id="settings_form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel"> تنظیمات</h5>
+            <button type="button" style="margin-left:0 ;" class="btn-close" data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <label class="my-1"> عنوان آزمون </label>
+            <input required type="text" class="form-control" placeholder="عنوان آزمون" name="quiz_title">
+            <div class="row my-1">
+              <div class="col">
+                <label class="mx-1"> مدت زمان هر سوال (ثانیه)</label>
+                <input required type="number" min="1" class="form-control" placeholder="مدت زمان هر سوال "
+                  name="quiz_time">
+              </div>
+              <div class="col">
+                <label class="mx-1"> تعداد نفرات شرکت کننده</label>
+                <input required type="number" min="1" class="form-control" placeholder="تعداد نفرات"
+                  name="quiz_users_number">
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" id="save-settigs" class="btn btn-primary w-100">ذخیره</button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <!-- new question Modal -->
+    <form class="modal fade" id="form" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">افزودن سوال</h5>
+            <button type="button" style="margin-left:0 ;" class="btn-close" data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <textarea placeholder="صورت سوال" class="form-control mb-2" name="question" cols="30" rows="5"
+              required></textarea>
+            <input required type="text" class="form-control mb-2" placeholder="گزینه ۱" name="opt1">
+            <input required type="text" class="form-control mb-2" placeholder="گزینه ۲" name="opt2">
+            <input required type="text" class="form-control mb-2" placeholder="گزینه ۳" name="opt3">
+            <input required type="text" class="form-control mb-2" placeholder="گزینه ۴" name="opt4">
+            <label class="my-1"> گزینه صحیح </label>
+            <div id="choices" style="display:flex; align-items:center ; justify-content: space-around;">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary w-100">افزودن</button>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <div class="all_tasks">
+      <div id="tasks">
+      </div>
+    </div>
+  </div>
+</body>
+<script src="bootstrap/bootstrap.bundle.min.js"></script>
+<script src="alertify/alertify.min.js"></script>
+<script src="utils.js"></script>
+<script src="../global.js"></script>
+<script src="main.js"></script>
+<script>
+  var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+  var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+  })
+</script>
+
+</html>

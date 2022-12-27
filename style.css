@@ -23,7 +23,7 @@ body {
   background: #007bff;
 }
 
-button{
+button {
   cursor: pointer;
 }
 
@@ -105,22 +105,22 @@ button{
   border: none;
 }
 
-.info_box .info-list {
+.info_box .info-list-table {
   padding: 15px 30px;
 }
 
-.info_box .info-list .info {
+.info_box .info-list-table .info {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.info_box .info-list .info p {
+.info_box .info-list-table .info p {
   margin: 5px 0;
   font-size: 17px;
 }
 
-.info_box .info-list .info span {
+.info_box .info-list-table .info span {
   font-weight: 600;
   color: #007bff;
 }
@@ -385,6 +385,7 @@ footer button.show {
 .result_box .complete_text {
   font-size: 20px;
   font-weight: 500;
+  text-align: center;
 }
 
 .result_box .score_text span {
@@ -418,21 +419,61 @@ footer button.show {
   transition: all 0.3s ease;
 }
 
-.buttons button.restart {
+.next_turn_btn {
   color: #fff;
   background: #007bff;
 }
 
-.buttons button.restart:hover {
+.next_turn_btn:hover {
   background: #0263ca;
 }
 
-.buttons button.quit {
+.show_results_btn {
   color: #007bff;
   background: #fff;
 }
 
-.buttons button.quit:hover {
+.show_results_btn:hover {
   color: #fff;
   background: #007bff;
 }
+
+.continue_btn {
+  display: none;
+}
+
+.info_box{
+  overflow: hidden;
+}
+
+.info-list-table {
+  border-collapse: collapse;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  width: 100%;
+}
+
+.info-list-table thead tr {
+  background-color: #009879;
+  color: #fff;
+  text-align: center;
+}
+
+.info-list-table th,
+.info-list-table td {
+  padding: 12px 15px;
+}
+
+.info-list-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+  text-align: center;
+}
+
+.info-list-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.info-list-table tbody tr:last-of-type {
+  border-bottom: 2px solid #84c5fe;
+}
+

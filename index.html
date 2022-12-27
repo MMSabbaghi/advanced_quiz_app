@@ -10,26 +10,12 @@
 </head>
 
 <body>
-    <!-- Info Box -->
+    <!-- Intro Box -->
     <div class="intro_box activeIntro">
-        <button class="start_btn">شروع مسابقه</button>
+        <button class="continue_btn"> ادامه مسابقه قبلی </button>
         <button class="newgame_btn"> شروع مسابقه جدید</button>
         <a href="./add_question/index.html"> مدیریت آزمون </a>
     </div>
-
-    <!-- Info Box -->
-    <div class="info_box">
-        <div class="info-title">
-            <p>نتایج مسابقه</p>
-            <div style="display: flex; gap: 30px; align-items: center;">
-                <button class="continue-btn"> ادامه مسابقه </button>
-                <button class="refresh-results"> بازنشانی </button>
-            </div>
-        </div>
-        <div class="info-list">
-        </div>
-    </div>
-
 
     <!-- Quiz Box -->
     <div class="quiz_box">
@@ -50,12 +36,8 @@
             </div>
         </section>
 
-
         <footer>
             <button class="next_btn">سوال بعدی</button>
-            <div class="total_que">
-
-            </div>
         </footer>
     </div>
 
@@ -64,9 +46,31 @@
         <i class="bi bi-gem icon"></i>
         <div class="complete_text"></div>
         <div class="buttons">
-            <button class="restart"> نفر بعد </button>
-            <button class="quit">نمایش امتیازات</button>
+            <button class="next_turn_btn"> نفر بعد </button>
+            <button class="show_results_btn">نمایش امتیازات</button>
         </div>
+    </div>
+
+    <!-- Info Box -->
+    <div class="info_box">
+        <div class="info-title">
+            <p>نتایج مسابقه</p>
+            <div style="display: flex; gap: 30px; align-items: center;">
+                <button class="back_to_game"> بازگشت</button>
+                <button class="refresh-results"> بازنشانی </button>
+            </div>
+        </div>
+        <table class="info-list-table">
+            <thead>
+                <tr>
+                    <th>شرکت کننده</th>
+                    <th>امتیاز</th>
+                    <th>زمان ذخیره</th>
+                </tr>
+            </thead>
+            <tbody class="info-list">
+            </tbody>
+        </table>
     </div>
 
 </body>

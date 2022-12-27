@@ -12,6 +12,10 @@ const get_saved_data = (key, default_value) => {
   return JSON.parse(data);
 };
 
+function save_data(key, data) {
+  localStorage.setItem(key, JSON.stringify(data));
+}
+
 function format_numbers_to_persian(txt) {
   const str = "" + txt;
   const persianNums = ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"];

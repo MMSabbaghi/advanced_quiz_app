@@ -1,7 +1,3 @@
-function save_data(key, data) {
-  localStorage.setItem(key, JSON.stringify(data));
-}
-
 function save_as_text(file_name, txt) {
   let blob = new Blob([JSON.stringify(txt)], { type: "octet/stream" });
   let anchor = document.createElement("a");

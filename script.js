@@ -210,13 +210,13 @@ function option_selected(choice, answer, option_index) {
 
   if (answer === option_index) {
     userScore += 1; //upgrading score value with 1
+    saved_time += +timeValue;
     update_option_item(choice, "correct", tickIconTag);
   } else {
     update_option_item(choice, "incorrect", crossIconTag);
     render_correct_ans(answer);
   }
   next_btn.classList.add("show"); //show the next button if user selected any option
-  saved_time += +timeValue;
   update_corrent_turn(que_count + 1);
 }
 

@@ -1,4 +1,4 @@
-const cacheName = "prayerTimerCache";
+const cacheName = "advancedQuizAppCache";
 const assetsToCache = [
   "/advanced_quiz_app/",
   "/advanced_quiz_app/global.js",

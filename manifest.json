@@ -1,7 +1,6 @@
 {
     "theme_color": "#007bff",
     "background_color": "#007bff",
-    "scope": "/",
     "start_url": "https://mmsabbaghi.github.io/advanced_quiz_app/",
     "name": "کوئیز",
     "short_name": "ساخت کوئیز چند نفره",

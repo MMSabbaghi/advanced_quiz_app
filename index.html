@@ -77,7 +77,7 @@
 <script src="./global.js"></script>
 <script src="./script.js"></script>
 <script>
-    navigator.serviceWorker?.register('sw.js')
+    navigator.serviceWorker?.register('/advanced_quiz_app/sw.js', { scope: '/advanced_quiz_app/' })
         .then(function (reg) {
             // registration worked
             console.log('Registration succeeded. Scope is ' + reg.scope);
@@ -87,4 +87,5 @@
             console.log('Registration failed with ' + error);
         });
 </script>
+
 </html>

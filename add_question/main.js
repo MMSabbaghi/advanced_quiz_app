@@ -11,25 +11,6 @@ let choices = $("#choices");
 
 let answer = 1;
 
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  add_data();
-  form.reset();
-});
-
-let add_data = () => {
-  let form_data = get_form_data(form);
-  const new_data = {
-    question: form_data.question,
-    options: [form_data.opt1, form_data.opt2, form_data.opt3, form_data.opt4],
-    answer,
-  };
-  console.log(new_data);
-  data.push(new_data);
-  save_all_data();
-  notify_success("با موفقیت ذخیره شد.");
-};
-
 let saveAns = (ans) => (answer = ans);
 
 let create_choice_elements = () => {
@@ -49,9 +30,28 @@ let create_choice_elements = () => {
   choices.innerHTML = choicesHtml;
 };
 
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  add_data();
+  form.reset();
+  create_choice_elements();
+});
+
+let add_data = () => {
+  let form_data = get_form_data(form);
+  const new_data = {
+    question: form_data.question,
+    options: [form_data.opt1, form_data.opt2, form_data.opt3, form_data.opt4],
+    answer,
+  };
+  console.log(new_data);
+  data.push(new_data);
+  save_all_data();
+  notify_success("با موفقیت ذخیره شد.");
+};
+
 let save_all_data = () => {
   save_data(ALL_DATA_KEY, data);
-  create_choice_elements()
   render_data_list();
 };
 

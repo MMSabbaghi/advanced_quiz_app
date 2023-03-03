@@ -30,8 +30,28 @@ let add_data = () => {
   notify_success("با موفقیت ذخیره شد.");
 };
 
+let saveAns = (ans) => (answer = ans);
+
+let create_choice_elements = () => {
+  let choicesHtml = "";
+  ["۱", "۲", "۳", "۴"].forEach((ch, i) => {
+    choicesHtml += `<div class="d-flex">
+    <input 
+    class="form-check-input"
+    type="radio"
+    onclick="saveAns(${i + 1})"
+    ${answer === i + 1 ? "checked" : ""}
+    name="ChoiceRadio" 
+    id = "slot${i}">
+    <label class="form-check-label px-2" for="ChoiceRadio"> ${ch} </label>
+    </div>`;
+  });
+  choices.innerHTML = choicesHtml;
+};
+
 let save_all_data = () => {
   save_data(ALL_DATA_KEY, data);
+  create_choice_elements()
   render_data_list();
 };
 
@@ -83,25 +103,6 @@ let delete_single_data = (e) => {
       save_all_data();
     },
   });
-};
-
-let saveAns = (ans) => (answer = ans);
-
-let create_choice_elements = () => {
-  let choicesHtml = "";
-  ["۱", "۲", "۳", "۴"].forEach((ch, i) => {
-    choicesHtml += `<div class="d-flex">
-    <input 
-    class="form-check-input"
-    type="radio"
-    onclick="saveAns(${i + 1})"
-    ${answer === i + 1 ? "checked" : ""}
-    name="ChoiceRadio" 
-    id = "slot${i}">
-    <label class="form-check-label px-2" for="ChoiceRadio"> ${ch} </label>
-    </div>`;
-  });
-  choices.innerHTML = choicesHtml;
 };
 
 settings_form.addEventListener("submit", (e) => {

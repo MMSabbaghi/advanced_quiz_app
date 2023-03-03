@@ -34,7 +34,7 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
   add_data();
   form.reset();
-  create_choice_elements();
+  answer = 1;
 });
 
 let add_data = () => {
